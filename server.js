@@ -1,10 +1,13 @@
-const { execFile } = require('child_process');
+const { exec } = require("child_process");
 
-execFile('./popatlal.sh', (error, stdout, stderr) => {
+exec("ls -la", (error, stdout, stderr) => {
   if (error) {
-    console.error('Error executing script:', error);
+    console.log(`error: ${error.message}`);
     return;
   }
-  console.log('stdout:', stdout);
-  console.error('stderr:', stderr);
+  if (stderr) {
+    console.log(`stderr: ${stderr}`);
+    return;
+  }
+  console.log(`stdout: ${stdout}`);
 });
