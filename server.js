@@ -1,13 +1,21 @@
 const { exec } = require("child_process");
 
-exec("python popatlal.py", (error, stdout, stderr) => {
-  if (error) {
-    console.log(`error: ${error.message}`);
-    return;
+async function runPythonScript() {
+  try {
+    exec("python popatlal.py", (error, stdout, stderr) => {
+      if (error) {
+        console.log(`error: ${error.message}`);
+        return;
+      }
+      if (stderr) {
+        console.log(`stderr: ${stderr}`);
+        return;
+      }
+      console.log(`stdout: ${stdout}`);
+    });
+  } catch (err) {
+    console.error("Unexpected error:", err);
   }
-  if (stderr) {
-    console.log(`stderr: ${stderr}`);
-    return;
-  }
-  console.log(`stdout: ${stdout}`);
-});
+}
+
+runPythonScript();
