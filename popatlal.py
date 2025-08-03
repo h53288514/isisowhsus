@@ -8,7 +8,7 @@ session_string = '1BVtsOLYBu2RvSHMOwndCXhiZ0slvK4lYnE3U1rqm0f1OKuS4wZq0K5L-s4h-l
 
 receiver = '@tsar_almis'
 message = 'bhai tum op ho'
-count = 100
+count = 7
 delay = 1  # seconds
 
 with TelegramClient(StringSession(session_string), api_id, api_hash) as client:
